@@ -30,14 +30,19 @@ public class BiSearch {
     }
 
     public static void main(String[] args) {
+        long start = System.currentTimeMillis();
         int[] whiteList = In.readInts(args[0]);
         Arrays.sort(whiteList);
+        long sortTime = System.currentTimeMillis();
+        System.out.println("sort time: " + (sortTime - start));
         while (!StdIn.isEmpty()) {
             int key = StdIn.readInt();
             if (rank(key, whiteList) < 0) {
                 StdOut.println(key);
             }
         }
+        long findTime = System.currentTimeMillis();
+        System.out.println("find time: " + (findTime - sortTime));
     }
 
 }
